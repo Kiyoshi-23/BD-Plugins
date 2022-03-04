@@ -29,3 +29,9 @@ const config = {
     animationTime: 300
   }
 }
+
+class HideMenuIcons {
+  getName() { return config.info.name; }
+  getDescription() { return config.info.description; }
+  getVersion() { return config.info.version; }
+  getAuthor() { return config.info.author; }
