@@ -1,4 +1,42 @@
-// Now, we need to create a function to inject the CSS. This includes the button CSS inside a long string.  
+/**
+* @name HideMenuIcons
+* @author Kiyoshi
+* @version 1.0
+* @description Slides the menu icons in the far-left of your discord with the click of a mouse for a much more clear view.
+
+* @website https://github.com/Kiyoshi-23/BD-Plugins
+* @source https://github.com/Kiyoshi-23/BD-Plugins/blob/main/Hide-Menu-Icons/HideMenuIcons.plugin.js
+* @updateUrl https://raw.githubusercontent.com/Kiyoshi-23/BD-Plugins/main/Hide-Menu-Icons/HideMenuIcons.plugin.js
+*/
+
+const config = {
+  info: {
+    id: "HideMenuIcons",
+    name: "Hide-Menu-Icons",
+    description: "Slides the menu icons in the far-left of your discord with the click of a mouse for a much more clear view",
+    version: "1.0",
+    author: "Kiyoshi",
+    updateUrl: "https://raw.githubusercontent.com/Kiyoshi-23/BD-Plugins/main/Hide-Menu-Icons/HideMenuIcons.plugin.js"
+  },
+  constants: {
+    cssStyle: "HideMenuStyle",
+    parentID: "menusParent",
+    buttonID: "menusButton",
+    buttonHidden: "menusHidden",
+    buttonVisible: "menusVisible",
+    hideElementName: "hideMenuElement"
+    forceWidth: "forceIconWidth",
+    animationTime: 300
+  }
+}
+
+class HideMenuIcons {
+  getName() { return config.info.name; }
+  getDescription() { return config.info.description; }
+  getVersion() { return config.info.version; }
+  getAuthor() { return config.info.author; }
+
+  // Now, we need to create a function to inject the CSS. This includes the button CSS inside a long string.  
   // We could just use it as a long string but we can define it to use it multiple times. 
   injectCSS = `#${config.constants.buttonID} {
           width: 13px;
