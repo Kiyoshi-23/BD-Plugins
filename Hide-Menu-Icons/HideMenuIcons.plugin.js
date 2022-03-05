@@ -100,3 +100,8 @@ class HideMenuIcons {
     })
     node.forceUpdate()
   
+    // Updater
+    if (!global.ZeresPluginLibrary != null) {
+      global.ZeresPluginLibrary.PluginUpdater.checkForupdate(config.info.name, config.info.version, config.info.updateUrl)
+    }
+  
