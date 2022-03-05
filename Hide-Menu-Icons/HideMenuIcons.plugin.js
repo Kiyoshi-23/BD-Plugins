@@ -83,3 +83,20 @@ class HideMenuIcons {
   mouseclickFunc = (e) => this.toggleIcons();
   mouseenterFunc = (e) => this.toggleIcons(false, "entry");
   mouseleaveFunc = (e) => this.toggleIcons(false, "exit");
+
+
+  start() {
+    // Getting the User Area
+    let PanelButton = BdApi.findModuleByDisplayName("PanelButton")
+    let node = BdApi.getInternalInstance(document.querySelector(".panels-3wFtMD > .container-YkUktl")).return?.stateNode
+    // Patch
+    BdApi.Patcher.after("HideMenuIcons", node.__proto__, "render", (_, __,{ props }) => {
+      // Add button
+      props.children[2].props.children.unshift(BdApi.Reace.createElement(PanelButton, {
+        tooltipText: "Tooltip Text",
+        // Now, we need the console to log that the button was clicked.
+        onClick: () => console.log("Clicked!")
+      }))
+    })
+    node.forceUpdate()
+  
