@@ -105,3 +105,23 @@ class HideMenuIcons {
       global.ZeresPluginLibrary.PluginUpdater.checkForupdate(config.info.name, config.info.version, config.info.updateUrl)
     }
   
+  initialize() {
+      this.iconsHiddenBool = BdApi.loadData(config.info.id, "hidden");
+      this.hoverBool = BdApi.loadData(config.info.id, "hover");
+
+      // If there is any CSS, we need to clear it. 
+      Bdapi.clearCSS(config.constants.cssStyle);
+      // And Inject it back using the variable we created,
+      BdApi.injectCSS(config.constants.cssStyle, this.injectCSS);
+
+      renderButton(startup) {
+        
+      }
+      }
+    }
+
+  stop() {
+    // Clear CSS to end the program
+    BdApi.clearCSS(config.constants.cssStyle);
+  }
+}
