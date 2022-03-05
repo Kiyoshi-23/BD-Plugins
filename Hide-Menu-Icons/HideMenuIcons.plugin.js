@@ -78,3 +78,8 @@ class HideMenuIcons {
             transition: transform ${config.constants.animationTime}ms ease, opacity ${config.constants.animationTime}ms ease;
       }
       }`
+  
+  // Mouse Functions 
+  mouseclickFunc = (e) => this.toggleIcons();
+  mouseenterFunc = (e) => this.toggleIcons(false, "entry");
+  mouseleaveFunc = (e) => this.toggleIcons(false, "exit");
